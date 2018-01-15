@@ -53,7 +53,7 @@ class Operations {
         result
       }
       else {
-        runInner(list2, list(len), (elem, len) :: result)
+        runInner(list2, list(len),result:+((elem,len)))
       }
     }
 
