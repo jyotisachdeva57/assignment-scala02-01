@@ -19,6 +19,7 @@ object MenuLauncher {
     val list = List(first, second, third, fourth)
     val resultlist = obj.rotate(rotate, charlist)
     log.info(resultlist)
+    log.info(runencoding(list))
     val resdel = obj.deleteConsecutive(list)
     log.info(resdel)
     val magicno1 = 19
