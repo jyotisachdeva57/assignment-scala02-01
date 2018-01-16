@@ -44,21 +44,21 @@ class Operations {
       case head :: tail => head :: deleteConsecutive(tail)
     }
   }
-
+  
+  
   def runencoding(list: List[Int]): List[(Int, Int)] = {
-    
+
     def runInner(list: List[Int], elem: Int, result: List[(Int, Int)]): List[(Int, Int)] = {
       val (list1, list2) = list.span(_ == elem)
-      val len = list1.length
       if (list2 == Nil) {
-        result
+        result :+ ((elem, list1.length))
       }
       else {
-        runInner(list2, list(len),result:::List(elem,len))
+        val len = list1.length
+        runInner(list2, list(list1.length), result :+ ((elem, len)))
       }
     }
-
-    runInner(list, list(1), List())
+    runInner(list, list(0), List.empty[(Int, Int)])
   }
 
 }
