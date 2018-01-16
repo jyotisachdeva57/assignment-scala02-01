@@ -46,6 +46,7 @@ class Operations {
   }
 
   def runencoding(list: List[Int]): List[(Int, Int)] = {
+    
     def runInner(list: List[Int], elem: Int, result: List[(Int, Int)]): List[(Int, Int)] = {
       val (list1, list2) = list.span(_ == elem)
       val len = list1.length
@@ -53,7 +54,7 @@ class Operations {
         result
       }
       else {
-        runInner(list2, list(len),result:+((elem,len)))
+        runInner(list2, list(len),result:::List(elem,len))
       }
     }
 
